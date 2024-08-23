@@ -1,6 +1,9 @@
-const express = require('express')
+const express = require('express')  // expressjs
+const morgan = require('morgan')  // morgan
 const app = express()
-const port = 3000
+const port = 3000 // port : 127.0.0.1 & localhost:3000
+
+app.use(morgan('combined')) // use 'combined' of morgan
 
 // Định tuyến route
 app.get('/', (req, res) => {
