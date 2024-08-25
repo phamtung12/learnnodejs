@@ -7,9 +7,15 @@ const port = 3000 // port : 127.0.0.1 & localhost:3000
 
 app.use(morgan('combined')) // use 'combined' of morgan  (HTTP Logger)
 
+// static file img
+app.use(express.static(path.join(__dirname, 'public')))
+
 // Template engine
-app.engine('handlebars', handlebars.engine())
-app.set('view engine', 'handlebars');
+app.engine('hbs', handlebars.engine({
+    extname: '.hbs',
+}
+))
+app.set('view engine', 'hbs');
 app.set("views", path.join(__dirname, "resources\\views"));
 
 // Định tuyến route
